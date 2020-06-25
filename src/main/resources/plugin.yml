@@ -1,0 +1,10 @@
+name: CSVaddon
+version: ${project.version}
+main: me.architettoplugin.csvaddon.CSVaddon
+api-version: 1.15
+depend: [Towny, Vault]
+authors: [Architetto]
+description: Permette di settare delle chest che vendono il loro contenuto in automatico.
+commands:
+  CSVaddon:
+    description: Aggiunge una CSV.
