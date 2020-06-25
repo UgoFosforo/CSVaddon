@@ -7,4 +7,4 @@ authors: [Architetto]
 description: Permette di settare delle chest che vendono il loro contenuto in automatico.
 commands:
   CSVaddon:
-    description: Aggiunge una CSV.
+    description: Permette l'utilizzo delle CSV.

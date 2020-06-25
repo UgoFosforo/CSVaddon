@@ -7,7 +7,29 @@
 # +----------------------------------------------------------------------------------------------+ #
 ####################################################################################################
 
+
+Min material value : 1
+Max material value : 1000
 Auto-sell toggle: true
-Auto-sell day : Sunday
-Random Auto-sell time: false
-Auto-sell time : 10 #Se Random Auto-sell time è "false" allora ... Corrisponde all'ora (di default alle 10 di mattina)
+
+## Deve essere impostato in questo modo:
+##  Sotto-pattern per i minuti.
+##       Attraverso questo pattern si esprime in quali minuti si desidera avviare il task. I valori ammessi vanno da 0 a 59.
+##  Sotto-pattern per le ore.
+##       Attraverso questo pattern si esprime in quali ore si desidera avviare il task. I valori ammessi vanno da 0 a 23.
+##  Sotto-pattern per il giorno del mese.
+##       Attraverso questo pattern si esprime in quali giorni del mese si desidera avviare il task. I valori ammessi vanno da 1 a 31.
+##       Lo speciale valore "L" può essere utilizzato per riconoscere automaticamente l'ultimo giorno del mese.
+##  Sotto-pattern per il mese.
+##       Attraverso questo pattern si esprime in quali mesi si desidera avviare il task. I valori ammessi vanno da 1 (gennaio) a 12 (dicembre) , oppure
+##       è possibile usare le stringhe-equivalenti "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov" e "dec".
+##  Sotto-pattern per il giorno della settimana.
+##       Attraverso questo pattern si esprime in quali giorni della settimana si desidera avviare il task. I valori ammessi vanno
+##       da 0 (domenica) a 6 (sabato), oppure è possibile usare le stringhe-equivalenti: "sun", "mon", "tue", "wed", "thu", "fri" e "sat".
+##
+##  Se non si intende imporre una restrizione precisa su uno dei campi si può usare il carattere jolly asterisco, che sta
+##  a significare, a seconda del contesto, tutti i minuti, tutte le ore, tutti i giorni del mese ecc.
+
+Auto-sell time : 0 11 * * sun
+
+## Il parametro è molto personalizzabile, per più info vedi http://www.sauronsoftware.it/projects/cron4j/manual.php?lang=it
