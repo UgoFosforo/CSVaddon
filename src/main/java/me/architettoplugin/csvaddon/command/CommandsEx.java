@@ -245,7 +245,7 @@ public class CommandsEx implements CommandExecutor {
 
 
                         //ToDo : Impostare da config il valore max e minimo
-                        //ToDo : da cambiare!
+
                         if(Integer.parseInt ( args[3] )<=0 || Integer.parseInt ( args[3] )>=1000){
                             sender.sendMessage ( "Il valore inserito è troppo alto o troppo basso !" );
                             return true;

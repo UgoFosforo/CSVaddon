@@ -13,13 +13,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 
 public final class CSVaddon extends JavaPlugin {
 
-    //ToDo: Probabilmente ste variabili le metto direttamente in commandEx
     public static List<String> listaCityPiano;
     public static List<String> listaCityConCSV;
     public static List<Material> ALLmaterials;
@@ -28,8 +26,6 @@ public final class CSVaddon extends JavaPlugin {
 
     private static final String pathMaterialsValue = "plugins/CSVaddon/MaterialsValue.txt";
     public static HashMap<String,Integer> mapMaterialsValue = new HashMap<> ();
-
-    // ToDo: public static ArrayList<String> listaCitySenzaCSV;
 
 
     @Override
@@ -78,6 +74,7 @@ public final class CSVaddon extends JavaPlugin {
         getCommand ( "CSVaddon" ).setExecutor ( new CommandsEx () );
 
         //TabCompleter
+        //ToDo
 
 
     }

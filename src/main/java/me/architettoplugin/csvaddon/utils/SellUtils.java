@@ -50,7 +50,6 @@ public class SellUtils {
 
                 //ToDo: sarebbe meglio eliminare solo gli items effettivamente venduti.
                 inv.clear ();
-                //ToDo : ovviamente va collegato a Vault... non ho ancora idea di come ....
 
             }
 
