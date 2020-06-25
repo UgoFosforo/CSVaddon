@@ -1,15 +1,16 @@
 package me.architettoplugin.csvaddon;
 
+import it.sauronsoftware.cron4j.Scheduler;
 import me.architettoplugin.csvaddon.command.CommandsEx;
 import me.architettoplugin.csvaddon.listener.onDeleteTownEvent;
 import me.architettoplugin.csvaddon.listener.onNewTownEvent;
-import me.architettoplugin.csvaddon.utils.CustomConfigUtils;
-import me.architettoplugin.csvaddon.utils.CmdUtils;
-import me.architettoplugin.csvaddon.utils.SLAPI;
+import me.architettoplugin.csvaddon.utils.*;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Material;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 
 import java.io.File;
@@ -27,6 +28,7 @@ public final class CSVaddon extends JavaPlugin {
     private static final String pathMaterialsValue = "plugins/CSVaddon/MaterialsValue.txt";
     public static HashMap<String,Integer> mapMaterialsValue = new HashMap<> ();
 
+    private static Plugin plugin;
 
     @Override
     public void onEnable() {
@@ -37,6 +39,8 @@ public final class CSVaddon extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+
+        plugin = this;
 
 
 
@@ -63,6 +67,20 @@ public final class CSVaddon extends JavaPlugin {
         } catch (Exception e) {
             e.printStackTrace ();
         }
+
+        // TEST TEST TEST TEST
+
+        MyTask task = new MyTask();
+        Scheduler scheduler = new Scheduler();
+        scheduler.schedule("10 19 * * thu", task );
+        scheduler.start();
+
+        // TEST TEST TEST TEST
+
+
+
+
+
 
 
 
@@ -104,11 +122,10 @@ public final class CSVaddon extends JavaPlugin {
         return econ != null;
     }
 
-
-
-
-
-
-
-
+    public static Plugin getPlugin() {
+        return plugin;
+    }
 }
+
+
+
