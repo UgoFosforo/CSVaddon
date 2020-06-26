@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.BlockInventoryHolder;
+import org.bukkit.inventory.DoubleChestInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -34,6 +35,15 @@ public class SellUtils {
                 sender.sendMessage ("Nella citta' di " + CSVaddon.listaCityConCSV.get ( i ) + " non e' stata trovata la CSV alle coordinate indicate !");
             else {
                 Inventory inv = ((BlockInventoryHolder) block.getState ()).getInventory ();
+
+                // al momento il plugin è inteso per evitare l'utilizzo di doppie chest !
+                // Nel caso qualcuno provasse a fare il furbo semplicemente la sua  chest non verrebbe processata.
+                if(inv instanceof DoubleChestInventory){
+                    System.out.println ("Qualcuno prova a fare il furbo!");
+                    continue;
+                }
+
+
                 ItemStack[] listaitems = inv.getContents ();
 
                 // TEST TEST TEST TEST
@@ -49,7 +59,7 @@ public class SellUtils {
                 sender.sendMessage ( ChatColor.GOLD + "GUADAGNO OTTENUTO da " + CSVaddon.listaCityConCSV.get ( i ) + " : " + ChatColor.WHITE + valore + " zenar." );
 
 
-                //ToDo: sarebbe meglio eliminare solo gli items effettivamente venduti.
+                //ToDo: sarebbe meglio eliminare solo gli items effettivamente venduti... oppure no ?
                 inv.clear ();
 
             }
@@ -81,6 +91,14 @@ public class SellUtils {
                 System.out.println ("Nella citta' di " + CSVaddon.listaCityConCSV.get ( i ) + " non e' stata trovata la CSV alle coordinate indicate !");
             else {
                 Inventory inv = ((BlockInventoryHolder) block.getState ()).getInventory ();
+
+                // al momento il plugin è inteso per evitare l'utilizzo di doppie chest !
+                // Nel caso qualcuno provasse a fare il furbo semplicemente la sua  chest non verrebbe processata.
+                if(inv instanceof DoubleChestInventory){
+                    System.out.println ("Qualcuno prova a fare il furbo!");
+                    continue;
+                }
+
                 ItemStack[] listaitems = inv.getContents ();
 
                 // TEST TEST TEST TEST
@@ -124,6 +142,14 @@ public class SellUtils {
             sender.sendMessage ("Nella citta' di " + CityName + " non e' stata trovata la CSV alle coordinate indicate !");
         else {
             Inventory inv = ((BlockInventoryHolder) block.getState ()).getInventory ();
+
+            // al momento il plugin è inteso per evitare l'utilizzo di doppie chest !
+            // Nel caso qualcuno provasse a fare il furbo semplicemente la sua  chest non verrebbe processata.
+            if(inv instanceof DoubleChestInventory){
+                System.out.println ("Qualcuno prova a fare il furbo!");
+                return;
+            }
+
             ItemStack[] listaitems = inv.getContents ();
 
             Town town = TownyAPI.getInstance ().getTownBlock ( CSVLocation ).getTown ();

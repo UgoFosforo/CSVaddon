@@ -34,8 +34,6 @@ public class CmdUtils {
                 System.out.println ("Impossibile salvare il File csvTownList");
             }
         }
-
-
     }
 
 
@@ -47,8 +45,6 @@ public class CmdUtils {
         }
         return listaTown;
     }
-
-
 
     //Inserisce la locazione CSV di una città
     public static void  insTownCustomConfig (String nomeCity, Location loc,CommandSender sender){
@@ -65,7 +61,6 @@ public class CmdUtils {
             } catch (IOException e) {
                 System.out.println ("Impossibile salvare il File csvTownList");
             }
-
         }else
             sender.sendMessage ( "La citta' "+nomeCity+" possiede gia' una CSV!" );
     }
@@ -106,8 +101,6 @@ public class CmdUtils {
 
 
     //Modifica la posizione di una CSV
-
-
     public static void  removeTownCustomConfig (String nomeCity,CommandSender sender){
         if(cfg.contains ( nomeCity )){
             cfg.set ( nomeCity,null);
@@ -119,8 +112,6 @@ public class CmdUtils {
             }
         }
     }
-
-
 
 
     public List<String> getListaCityConCSV (){

@@ -460,14 +460,13 @@ public class CommandsEx implements CommandExecutor {
                         return true;
 
 
+
                     default:
                         return true;
 
 
                 }
 
-            case "reload":
-                //Todo
 
             default:
                 return true;
