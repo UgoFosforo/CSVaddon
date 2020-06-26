@@ -4,10 +4,9 @@ package me.architettoplugin.csvaddon.utils;
 import com.palmergames.bukkit.towny.TownyUniverse;
 
 import com.palmergames.bukkit.towny.object.Town;
-;
-import me.architettoplugin.csvaddon.CSVaddon;
+
 import org.bukkit.Location;
-import org.bukkit.Material;
+
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
