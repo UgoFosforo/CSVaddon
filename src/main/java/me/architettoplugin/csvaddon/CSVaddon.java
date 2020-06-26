@@ -24,11 +24,16 @@ public final class CSVaddon extends JavaPlugin {
     public static List<Material> ALLmaterials;
     public static Economy econ = null;
 
+    public static HashMap<String,Integer> mapMaterialsValue = new HashMap<> ();
+    public static int minvaluematerial;
+    public static int maxvaluematerial;
+
 
     private static final String pathMaterialsValue = "plugins/CSVaddon/MaterialsValue.txt";
-    public static HashMap<String,Integer> mapMaterialsValue = new HashMap<> ();
+
 
     private static Plugin plugin;
+
 
     @Override
     public void onEnable() {
@@ -46,6 +51,11 @@ public final class CSVaddon extends JavaPlugin {
 
         getConfig ().options ().copyDefaults ();
         saveDefaultConfig ();
+
+        //Prendo dal config il valore minimo e massimo che può essere inserito ai materiali vendibili
+        minvaluematerial = getConfig ().getInt ( "Min material value" );
+        maxvaluematerial = getConfig ().getInt ( "Max material value" );
+        boolean scheduletoggle = getConfig ().getBoolean ( "Auto-sell toggle" );
 
 
         CustomConfigUtils.setup();
@@ -70,12 +80,19 @@ public final class CSVaddon extends JavaPlugin {
 
         // TEST TEST TEST TEST
 
-        MyTask task = new MyTask();
-        Scheduler scheduler = new Scheduler();
-        scheduler.schedule("10 19 * * thu", task );
-        scheduler.start();
+        if(scheduletoggle) {
+            String scheduledate = getConfig ().getString ( "Auto-sell time" );
+            System.out.println ("[CSVaddon] : Auto-sell attivo .");
+            MyTask task = new MyTask ();
+            Scheduler scheduler = new Scheduler ();
+            scheduler.schedule ( scheduledate, task );
+            scheduler.start ();
+        }else
+            System.out.println ("[CSVaddon] : Auto-sell non attivo .");
 
         // TEST TEST TEST TEST
+
+
 
 
 

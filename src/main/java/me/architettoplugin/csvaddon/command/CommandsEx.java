@@ -246,7 +246,7 @@ public class CommandsEx implements CommandExecutor {
 
                         //ToDo : Impostare da config il valore max e minimo
 
-                        if(Integer.parseInt ( args[3] )<=0 || Integer.parseInt ( args[3] )>=1000){
+                        if(Integer.parseInt ( args[3] ) <= CSVaddon.minvaluematerial || Integer.parseInt ( args[3] ) >= CSVaddon.maxvaluematerial){
                             sender.sendMessage ( "Il valore inserito è troppo alto o troppo basso !" );
                             return true;
                         }
